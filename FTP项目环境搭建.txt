@@ -1,0 +1,19 @@
+一、在ubuntu系统上搭建FTP服务器
+    1、安装FTP服务器：sudo apt-get install vsftpd
+    2、修改配置文件：sudo vim /etc/vsftpd.conf
+	    23 anonymous_enable=NO
+        26 local_enable=YES
+        29 write_enable=YES
+    3、重启FTP服务器：sudo service vsftpd restart
+    4、打开Ubuntu自带浏览器，在地址栏中输入：ftp://本机ip地址，然后输入用户名和密码。
+
+二、配置virtualBox让windows可以访问ubuntu系统下的FTP
+    1、关闭ubuntu系统：sudo init 0
+    2、配置-》网络-》连接方式-》桥接网络-》正在上网的网卡
+    3、启动ubuntu系统，在windows的命令行下ping ubuntu ip 地址，测试是否连通。
+        来自 192.168.0.120 的回复: 字节=32 时间<1ms TTL=64
+        来自 192.168.0.120 的回复: 字节=32 时间<1ms TTL=64
+        来自 192.168.0.120 的回复: 字节=32 时间<1ms TTL=64
+        来自 192.168.0.120 的回复: 字节=32 时间<1ms TTL=64
+    4、使用FlashFXP登录FTP服务器：
+	
